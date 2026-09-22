@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --color-ivory: #fbf7f1;
+  --color-cream: #f6efe4;
+  --color-sand: #ecdfcd;
+  --color-blush: #ecd7d1;
+  --color-blush-deep: #d9b3ab;
+  --color-espresso: #372620;
+  --color-espresso-soft: #6c5a4f;
+  --color-gold: #b28a4e;
+  --color-gold-light: #d9bd8c;
+  --color-line: #e4d7c6;
+}
+
+@theme inline {
+  --color-ivory: var(--color-ivory);
+  --color-cream: var(--color-cream);
+  --color-sand: var(--color-sand);
+  --color-blush: var(--color-blush);
+  --color-blush-deep: var(--color-blush-deep);
+  --color-espresso: var(--color-espresso);
+  --color-espresso-soft: var(--color-espresso-soft);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-line: var(--color-line);
+
+  --font-display: var(--font-cormorant), "Times New Roman", serif;
+  --font-sans: var(--font-jost), "Helvetica Neue", Arial, sans-serif;
+
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 1s ease both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-gold-light);
+  color: var(--color-espresso);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Ligne fine dorée décorative, utilisée sous les titres de section */
+.gold-rule {
+  position: relative;
+  display: inline-block;
+}
+.gold-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.6rem;
+  margin: 0 auto;
+  width: 3.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Scrollbar discrète */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand);
+  border-radius: 999px;
+}
